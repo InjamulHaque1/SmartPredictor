@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra-styles %}
+<link rel="stylesheet" href="{% static 'myapp/css/__home.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="top-content">
+      <div class="text">
+        <h1>Welcome to <span class="eseba">E-Seba</span></h1>
+        <p>"Explore our online healthcare hub, featuring doctor appointments, medical accessories, emergency services, and hospital blood supplies."</p>
+      </div>
+    </div>
+  
+    <h2 class="offer-title">We offer</h2>
+    
+    <div class="cards-container">
+      <div class="card">
+        <h2>Houses</h2>
+        <p>Find out houses</p>
+        <a href="#" class="card-button">Learn more</a>
+      </div>
+    
+      <div class="card">
+        <h2>Predictions</h2>
+        <p>Get your ML prediction</p>
+        <a href="#" class="card-button">Learn more</a>
+      </div>
+    </div>
+    
+  </div>
+
+{% endblock %}

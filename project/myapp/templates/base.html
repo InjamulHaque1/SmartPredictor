@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'myapp/images/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'myapp/css/__base.css' %}" />
+
+    {% block extra-styles %} {% endblock %}
+
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'houses' %}">Houses</a>
+        <a href="{% url 'prediction' %}">Prediction</a>
+        <a href="{% url 'about_us' %}">About</a>
+
+        <div id="user-links">
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="user-link">Admin Panel</a>
+                    <a href="{% url 'logout' %}" class="user-link">Sign out</a>
+                {% else %}
+                <div class="user-info">
+                    <a href="{% url 'user_profile' %}" class="user-link">{{ user.username }}</a>
+                    <a href="{% url 'logout' %}" class="user-link">Sign out</a>
+                </div>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'login' %}" class="user-link">Login</a>
+                <a href="{% url 'register' %}" class="user-link">Sign-up</a>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% block content %}
+    <!-- content -->
+    <!-- content -->
+    <!-- content -->
+    {% endblock %}
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <span class="eseba">Smart Predictor</span>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <ul>
+                    <li><strong>Address:</strong> Dhaka, Bangladesh</li>
+                    <li><strong>Email:</strong> eseba@gmail.com</li>
+                    <li><strong>Phone:</strong> +8801517037849</li>
+                    <li>+8801518037849</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2023 NewDevelopers</p>
+            <div class="footer-menu">
+                <ul class="f-menu">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

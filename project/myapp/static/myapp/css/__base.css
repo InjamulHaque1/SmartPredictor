@@ -1,0 +1,198 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: 'Mooli', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    text-align: center;
+    background-image: url(../images/background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    background-attachment: fixed;
+    flex-direction: column;
+    }
+
+.topnav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(97, 154, 212, 0.428); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: normal;
+    padding: 25px 16px;
+    margin: 0px 5px;
+    transition: transform 0.4s;
+    text-decoration: none;
+    
+}
+
+.topnav a:hover {
+    font-weight: normal;
+    background-color: rgba(151, 213, 255, 0.354);
+    border-radius: 5px;
+    color: #000000;
+    transform: translateY(10px);
+    overflow: hidden;
+}
+#user-links {
+    float: right;
+    margin-right: 20px;
+}
+
+.user-link {
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 16px;
+    margin: 0px 5px;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #fff;
+}
+
+footer {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    
+}
+
+.footer-content {
+    background: #111;
+    color: #fff;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 100px;
+    height: auto;
+}
+.logo .eseba{
+    position: relative;
+    top: -25px;
+    margin: 0px auto;
+    font-size: 70px;
+    font-weight: 900;
+    color: #1F8ACC;
+}
+
+.contact-info {
+    text-align: right;
+}
+
+.contact-info h3 {
+    color: aqua;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.contact-info ul li strong {
+    font-weight: bold;
+}
+
+.footer-bottom {
+    background: #000;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    margin: 0; 
+}
+
+.footer-bottom p a {
+    color: #44bae8;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer-bottom span {
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+
+.footer-menu {
+    padding: 15px;
+    float: right;
+}
+
+.footer-menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-menu ul li {
+    padding-right: 10px;
+    display: block;
+}
+
+.footer-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    border: 1.1px solid white;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.footer-menu ul li a i {
+    font-size: 1.1rem;
+    width: 20px;
+    transition: color .4s ease;
+}
+
+.footer-menu ul li a:hover {
+    color: aqua;
+}
+
+@media (max-width: 500px) {
+    .footer-menu ul {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}

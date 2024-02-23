@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  text-align: center;
+  background-image: url('../image/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  background-attachment: fixed;
+  
+}
+.top-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+.text { 
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 500px;
+  width: 800px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.text p {
+  text-align: justify;
+  font-size: 25px;
+  color: #fff; 
+}
+
+.text h1 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.eseba {
+  font-size: 80px;
+  color: #1c9eef;
+}
+
+.image {
+  max-width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.image img {
+  max-width: 100%;
+}
+
+.offer-title {
+  margin-bottom: 50px;
+  font-size: 62px;
+  margin-top: 20px;
+}
+
+.cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 40px;
+  margin-bottom: 100px;
+  perspective: 1000px;
+
+}
+.card {
+  backdrop-filter: blur(10px); 
+  border-radius: 10px;
+  padding: 50px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(69, 69, 69, 0.355);
+  background-color: rgba(0, 132, 255, 0.352);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-button {
+  margin: 30px auto 0px;
+  padding: 20px;
+  background-color: rgba(255, 222, 233, 0.7);
+  width: 50%;
+  align-content: center;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  transition: transform 0.2s;
+}
+
+.card-button:hover {
+  background-image: radial-gradient( circle 975px at 2.6% 48.3%,  rgb(0, 12, 183) 0%, rgba(95,184,224,1) 99.7% );
+  color: #fff; 
+  font-weight: bold;
+}
+
+.card h2 {
+  font-size: 24px;
+}
+
+.card p {
+  font-size: 16px;
+  padding: 20px 0px;
+}
+
+
