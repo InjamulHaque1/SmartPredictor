@@ -1,0 +1,16 @@
+.containerinfo {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+    backdrop-filter: blur(5px); 
+}
+
+.info p {
+    margin-bottom: 10px;
+}
+
+.containerinfo {
+    border: 1px solid #fff;
+}

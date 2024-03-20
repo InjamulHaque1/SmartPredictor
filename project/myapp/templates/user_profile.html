@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra-styles %}
+<link rel="stylesheet" href="{% static 'css/__user_profile.css' %}" />
+{% endblock %}
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="containerinfo" id="userProfileView" >
+    <h2>User Profile</h2>
+    <div class="info">
+        <p><strong>Username:</strong> {{ user_profile.user.username }}</p>
+        <p><strong>Name:</strong> {{ user_profile.fullname }} </p>
+        <p><strong>Email:</strong> {{ user_profile.user.email }}</p>
+        <p><strong>Age:</strong> {{ user_profile.age }}</p>
+        <p><strong>Address:</strong> {{ user_profile.address }}</p>
+        <p><strong>Mobile:</strong> {{ user_profile.mobile }}</p>
+    </div>
+</div>
+
+{% endblock %}
