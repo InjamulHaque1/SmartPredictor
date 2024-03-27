@@ -29,4 +29,24 @@ def delete_user_profile(sender, instance, **kwargs):
         profile.delete()
     except UserProfile.DoesNotExist:
         pass
+
+class Color(models.Model):
+    title = models.CharField(max_length=100)
+    color_code = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+    
+class House(models.Model):
+    id = models.CharField(max_length=100,primary_key=True)
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="house_imgs", null=True)
+    spec = models.TextField()
+    price = models.PositiveBigIntegerField()
+    detail = models.TextField()
+    color = models.ForeignKey(Color, on_delete=models.CASCADE)
+    status = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
     

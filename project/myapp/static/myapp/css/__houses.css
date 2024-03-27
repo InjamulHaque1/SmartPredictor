@@ -1,1 +1,34 @@
+.bodyContents {
+    justify-items: space-around;
+    padding: 0px 20px;
+}
 
+.featured-houses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.house {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px;
+    width: 320px;
+    display: block;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.bodyContents h2 {
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+.imageMod {
+    max-width: 280px;
+    max-height: 240px;
+    object-fit: contain;
+}

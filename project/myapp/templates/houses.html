@@ -6,7 +6,20 @@
 {% endblock %}
 
 {% block content %}
-
-<p>This is houses</p>
-
+<div class="bodyContents">
+    <h2 style="color: #720B98">Featured Houses</h2>
+    <div class="featured-houses">
+        {% for house in houses %}
+        <div class="house">
+            <img src="{{ house.image.url }}" alt="{{ house.title }}">
+            <a href="http://127.0.0.1:8000/detailBody/{{ house.id }}">
+                <h3>{{ house.title }}</h3>
+                <p>{{ house.spec }}</p>
+            </a>
+            <span>${{ house.price }}</span>
+            <button>Add to Cart</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
