@@ -30,9 +30,9 @@ def delete_user_profile(sender, instance, **kwargs):
     except UserProfile.DoesNotExist:
         pass
 
-class Color(models.Model):
+class Category(models.Model):
+    id = models.CharField(max_length=100,primary_key=True)
     title = models.CharField(max_length=100)
-    color_code = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
@@ -41,10 +41,13 @@ class House(models.Model):
     id = models.CharField(max_length=100,primary_key=True)
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to="house_imgs", null=True)
-    spec = models.TextField()
-    price = models.PositiveBigIntegerField()
+    productCategory = models.ForeignKey(Category, on_delete=models.CASCADE,null=True)
+    area = models.CharField(max_length=200,null=True)
+    address = models.CharField(max_length=200,null=True)
     detail = models.TextField()
-    color = models.ForeignKey(Color, on_delete=models.CASCADE)
+    spec = models.TextField()
+    contact = models.CharField(max_length=200,null=True)
+    price = models.PositiveBigIntegerField()
     status = models.BooleanField(default=True)
 
     def __str__(self):

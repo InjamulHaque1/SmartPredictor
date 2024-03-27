@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
@@ -5,7 +7,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import UserProfile
 from .models import House
-
 
 def home(request):
     return render(request, 'home.html')
@@ -76,6 +77,14 @@ def logout(request):
 def houses(request):
     houses = House.objects.all()
     return render(request, 'houses.html', {'houses': houses})
+
+def detailBody(request, house_id=None):
+    if house_id is not None:
+        house = get_object_or_404(House, id=house_id)
+    else:
+        return HttpResponse("Condition not met!")
+    
+    return render(request, 'detailBody.html', {'house': house})
 
 def prediction(request):
     return render(request, 'prediction.html')
