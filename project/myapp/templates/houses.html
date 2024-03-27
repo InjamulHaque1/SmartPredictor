@@ -2,94 +2,12 @@
 {% load static %}
 
 {% block extra-styles %}
-<link rel="stylesheet" href="{% static 'css/__houses.css' %}" />
+<link rel="stylesheet" href="{% static 'myapp/css/__houses.css' %}" />
 {% endblock %}
 
+{% block title %}Houses{% endblock %}
+
 {% block content %}
-<head>
-    <title>Featured Houses</title>
-    <style>
-        body {
-            font-family: 'Trebuchet MS', sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 0;
-        }
-
-        .bodyContents {
-            justify-items: space-around;
-            padding: 0px 20px;
-        }
-
-        .featured-houses {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            text-align: center;
-        }
-
-        .house {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            margin: 20px;
-            width: 320px;
-            display: block;
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-
-        .bodyContents h2 {
-            width: 100%;
-            padding-top: 0px;
-            padding-bottom: 0px;
-            text-align: center;
-            color: #800;
-            font-weight: bold;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .imageMod {
-            max-width: 280px;
-            max-height: 240px;
-            object-fit: contain;
-        }
-
-        .house h3 {
-            color: #720B98;
-            font-size: 20px;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-
-        .house p {
-            color: #0013de;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .house span {
-            color: #c70000;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .house button {
-            background-color: #f94001;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .house button:hover {
-            background-color: #e64a19;
-        }
-    </style>
-</head>
 <body>
     <div class="bodyContents">
         <h2>Featured Houses</h2>
@@ -97,7 +15,7 @@
             {% for house in houses %}
             <div class="house">
                 <img src="{{ house.image.url }}" alt="{{ house.title }}" class="imageMod">
-                <a href="http://127.0.0.1:8000/detailBody/{{ house.id }}">
+                <a href="{% url 'detailBody' house.id %}">
                     <h3>{{ house.title }} </h3>
                 </a>
                 <p>Type: {{ house.productCategory }}<i class="fas fa-home"></i></p>

@@ -1,24 +1,25 @@
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
 .bodyContents {
-    /* position: absolute; */
     justify-items: space-around;
     padding: 0px 20px;
 }
 
-.featured-products {
+.featured-houses {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     justify-content: space-around;
-    /* background-color: lightgray; */
-    /* background-color: #f9f9f9; */
     text-align: center;
 }
 
-.product {
-    /* background-color: lightgray; */
+.house {
     background-color: #f9f9f9;
     border-radius: 10px;
-    /* max-width: 30%; */
     margin: 20px;
     width: 320px;
     display: block;
@@ -31,31 +32,48 @@
     padding-top: 0px;
     padding-bottom: 0px;
     text-align: center;
+    color: #800;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
-
-/* .product img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-} */
 
 .imageMod {
     max-width: 280px;
     max-height: 240px;
     object-fit: contain;
-    /* img {
-        display: block;
-        height: 100%;
-        width: 100%;
-    }*/
 }
 
+.house h3 {
+    color: #720B98;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
 
-/* @media screen and (max-width: 600px) {
-    .product {
-        max-width: 310px;
-        min-width: 290px;
-    }
-} */
+.house p {
+    color: #0013de;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.house span {
+    color: #c70000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.house button {
+    background-color: #f94001;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.house button:hover {
+    background-color: #e64a19;
+}

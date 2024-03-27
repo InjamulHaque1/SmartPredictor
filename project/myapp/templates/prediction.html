@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block extra-styles %}
-<link rel="stylesheet" href="{% static 'css/__prediction.css' %}" />
+<link rel="stylesheet" href="{% static 'myapp/css/__prediction.css' %}" />
 {% endblock %}
+
+{% block title %}Prediction{% endblock %}
 
 {% block content %}
 <p>This is prediction</p>

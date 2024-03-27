@@ -74,6 +74,11 @@ body {
     color: #fff;
 }
 
+.con{
+    height: 300px;
+    width: 300px;
+}
+
 footer {
     width: 100%;
     color: #fff;
