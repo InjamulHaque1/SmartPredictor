@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import UserProfile
+from .models import House
 
 
 def home(request):
@@ -72,9 +73,9 @@ def logout(request):
     messages.success(request, "Logged out Successfully!")
     return redirect('home')
 
-
 def houses(request):
-    return render(request, 'houses.html')
+    houses = House.objects.all()
+    return render(request, 'houses.html', {'houses': houses})
 
 def prediction(request):
     return render(request, 'prediction.html')

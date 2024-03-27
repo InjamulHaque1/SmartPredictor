@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra-styles %}
+<link rel="stylesheet" href="{% static 'css/__houses.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="bodyContents">
+        <div class="featured-brands">
+            <div class="product">
+                <h1 class="center-title">{{ house.title }}</h1>
+                <div class="product-info">
+                    <span class="blue-bold">Color: {{ house.color }} </span>
+                </div>
+                <div class="product-header">
+                    <br></br>
+                    <img class="imageMod" src="{{ house.image.url }}" alt="{{ house.title }}" />
+                    <h3 class="blue-bold">Price: ${{ house.price }}</h3>
+                </div>
+                <div class="product-details">
+                    <h3 class="black-bold"> Specification: </h3>
+                    <p>{{ house.spec }}</p>
+                </div>
+                <div class="product-footer">
+                    <h3 class="black-bold"> Description: </h3>
+                    <p>{{ house.detail }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

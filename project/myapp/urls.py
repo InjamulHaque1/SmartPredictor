@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView
+from . import views
 
 from . import views
 
@@ -15,4 +16,5 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('register/', views.register, name='register'),
     path('user_profile/', views.user_profile, name='user_profile'),
+    path('houses/', views.houses, name='houses'),
 ]
