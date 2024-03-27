@@ -1,18 +1,24 @@
 .bodyContents {
+    /* position: absolute; */
     justify-items: space-around;
     padding: 0px 20px;
 }
 
-.featured-houses {
+.featured-products {
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: space-between; */
     justify-content: space-around;
+    /* background-color: lightgray; */
+    /* background-color: #f9f9f9; */
     text-align: center;
 }
 
-.house {
+.product {
+    /* background-color: lightgray; */
     background-color: #f9f9f9;
     border-radius: 10px;
+    /* max-width: 30%; */
     margin: 20px;
     width: 320px;
     display: block;
@@ -27,8 +33,29 @@
     text-align: center;
 }
 
+/* .product img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+} */
+
 .imageMod {
     max-width: 280px;
     max-height: 240px;
     object-fit: contain;
+    /* img {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }*/
 }
+
+
+/* @media screen and (max-width: 600px) {
+    .product {
+        max-width: 310px;
+        min-width: 290px;
+    }
+} */
