@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import UserProfile
-from .models import House
+from .models import UserProfile, House
+from .forms import UserProfileForm, UserForm
 
 def home(request):
     return render(request, 'home.html')
@@ -61,8 +61,31 @@ def register(request):
 
 def user_profile(request):
     user_profile = UserProfile.objects.get(user=request.user)
+    profile_form = UserProfileForm(instance=user_profile)
+    user_form = UserForm(instance=request.user)
+    
+    if request.method == "POST":
+        if "delete_account" in request.POST:
+            request.user.delete()
+            auth_logout(request)
+            messages.success(request, "Your account has been deleted.")
+            return redirect('login')
+
+        profile_form = UserProfileForm(request.POST, instance=user_profile)
+        user_form = UserForm(request.POST, instance=request.user)
+
+        if profile_form.is_valid() and user_form.is_valid():
+            profile_form.save()
+            user_form.save()
+            messages.success(request, "Profile updated successfully.")
+            return redirect('user_profile')
+        else:
+            messages.error(request, "Error updating profile. Please check the form.")
+    
     context = {
         'user_profile': user_profile,
+        'profile_form': profile_form,
+        'user_form': user_form,
     }
     return render(request, 'user_profile.html', context)
 

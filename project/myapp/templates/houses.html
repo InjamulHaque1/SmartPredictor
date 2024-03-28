@@ -20,8 +20,10 @@
                 </a>
                 <p>Type: {{ house.productCategory }}<i class="fas fa-home"></i></p>
                 <p>{{ house.address }}</p>
-                <span>$BDT {{ house.price }} Cr</span>
-                <button>Buy Now</button>
+                <div class="bottom-button">
+                    <span>$BDT {{ house.price }} Cr</span>
+                    <button>Buy Now</button>
+                </div>
             </div>
             {% endfor %}
         </div>

@@ -18,6 +18,65 @@
         <p><strong>Address:</strong> {{ user_profile.address }}</p>
         <p><strong>Mobile:</strong> {{ user_profile.mobile }}</p>
     </div>
+
+    <div class="button-container">
+        <button id="editButton" class="b1">Edit profile</button>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="delete_account" class="b2">Delete Account</button>
+        </form>
+    </div>
+</div>
+<div class="containerinfo" id="userProfileEdit" style="display: none;">
+    <form id="profileForm" method="post">
+        <h2>Edit your information below:</h2>
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <div class="btn-container">
+            <button type="button" id="saveButton">Save</button>
+            <button type="button" id="cancelButton">Cancel</button>
+        </div>
+    </form>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const viewMode = document.getElementById("userProfileView");
+        const editMode = document.getElementById("userProfileEdit");
+        const editButton = document.getElementById("editButton");
+        const saveButton = document.getElementById("saveButton");
+        const cancelButton = document.getElementById("cancelButton");
+        const profileForm = document.getElementById("profileForm");
+
+        // Function to toggle between view and edit modes
+        editButton.addEventListener("click", () => {
+            viewMode.style.display = "none";
+            editMode.style.display = "block";
+        });
+
+        cancelButton.addEventListener("click", () => {
+            viewMode.style.display = "block";
+            editMode.style.display = "none";
+        });
+
+        saveButton.addEventListener("click", () => {
+            const formData = new FormData(profileForm);
+            const xhr = new XMLHttpRequest();
+
+            xhr.open("POST", "{% url 'user_profile' %}");
+
+            xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    location.reload();
+                } else {
+                    console.error("Error updating profile");
+                }
+            };
+            xhr.send(formData);
+        });
+    });
+</script>
 {% endblock %}

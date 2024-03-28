@@ -2,11 +2,40 @@
 {% load static %}
 
 {% block extra-styles %}
-<link rel="stylesheet" href="{% static 'css/__about_us.css' %}" />
+<link rel="stylesheet" href="{% static 'myapp/css/__about_us.css' %}" />
 {% endblock %}
 
 {% block title %}About Us{% endblock %}
 
 {% block content %}
-<p>This is about paragraph</p>
+<div class="about-us">
+    <h2>Our Team</h2>
+    <div class="team-member">
+    </div>
+    <div class="team-member">
+    </div>
+    <div class="team-member">
+    </div>
+    <div class="team-member">
+    </div>
+    <div class="team-member">
+    </div>
+    <div class="team-member">
+    </div>
+  
+    <div class="project-description">
+      <h3>Critical Challenges</h3>
+      <p>A critical challenge in the project lies in ensuring the reliability and accuracy of the Machine Learning algorithms used for property price predictions, especially considering the dynamic nature of the real estate market and the diverse range of factors influencing property values. Additionally, overcoming the hurdle of unfamiliarity among users with Machine Learning technology poses a significant challenge, requiring intuitive user interfaces and comprehensive educational resources.</p>
+  
+      <h3>Motivation behind our work</h3>
+      <p>Our project, named "Smart Predictor," is driven by a common problem faced by many people who want to buy homes: dealing with the complicated real estate market. Often, buyers face obstacles like high fees from brokers and unreliable property evaluations, making it hard for them to buy a home. This problem is especially big in Bangladesh, where getting accurate predictions about property prices is really important.
+        In Bangladesh's fast-changing real estate market, it's crucial to know exactly how much a property is worth. Traditional methods often don't give the right answers, leaving buyers with wrong information and unexpected costs. Our goal is simple: to give people a powerful tool that uses Machine Learning to help them understand property prices better.
+        </p>
+  
+      <h3>Impact on our lives</h3>
+      <p>
+        Our project aims to create a user-friendly website for property search and registration, incorporating AI-powered algorithms for accurate price predictions and offering comprehensive property listings with detailed descriptions and images. It includes a secure user authentication system, efficient administration tools, and regular updates for optimal platform performance and legal compliance. The social and environmental impacts include empowering homebuyers through affordability and social equity, reducing carbon footprint and promoting environmental sustainability, ensuring transparency and inclusivity in decision-making processes, streamlining transactions for efficiency, and fostering community building through knowledge sharing and social cohesion initiatives. Overall, the project aims to revolutionize the real estate industry while creating positive impacts on affordability, transparency, efficiency, and community engagement.</p>
+    </div>
+  </div>
+  
 {% endblock %}

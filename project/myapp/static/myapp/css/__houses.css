@@ -1,30 +1,28 @@
-body {
-    font-family: 'Trebuchet MS', sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-}
-
 .bodyContents {
     justify-items: space-around;
     padding: 0px 20px;
+    margin: 20px;
+    border-radius: 10px;
 }
 
 .featured-houses {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
 }
 
 .house {
     background-color: #f9f9f9;
+    background-color: rgba(131, 165, 185, 0.5);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     margin: 20px;
     width: 320px;
+    height: 480px;
     display: block;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 20px 20px 40px 20px;
 }
 
 .bodyContents h2 {
@@ -32,7 +30,7 @@ body {
     padding-top: 0px;
     padding-bottom: 0px;
     text-align: center;
-    color: #800;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 20px;
@@ -43,37 +41,57 @@ body {
     max-height: 240px;
     object-fit: contain;
 }
+.imageMod img {
+    width: 280px;
+    height: 240px;
+}
 
 .house h3 {
-    color: #720B98;
+    color: #ffffff;
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.house a {
+    text-decoration: none;
 }
 
 .house p {
-    color: #0013de;
+    color: #ffffff;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
+.bottom-button{
+    position: absolute;
+    margin: 20px 0px;
+    bottom: 0px;
+    left: 58px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding-left: 10px;
+}
 .house span {
-    color: #c70000;
+    color: #ff0000;
     font-weight: bold;
     font-size: 18px;
 }
 
 .house button {
-    background-color: #f94001;
-    color: #fff;
+    background-color: #01f9d0;
+    color: #000000;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 10px;
+    padding: 15px 25px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    font-family: 'Mooli', sans-serif;
 }
 
 .house button:hover {
     background-color: #e64a19;
+    color: white;
 }

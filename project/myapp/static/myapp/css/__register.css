@@ -78,7 +78,10 @@ input[type="radio"] {
   cursor: pointer;
   border-radius: 3px;
   transition: background-color 0.5s, transform 0.2s, border-color 0.5s;
-  border: 1px solid rgba(255, 255, 255, 0.394); 
+  border: 1px solid rgba(255, 255, 255, 0.394);
+  position: relative; 
+  left: 125px;
+  
 }
 
 .btn-primary:hover {
@@ -91,10 +94,4 @@ input[type="radio"] {
   color: #fff;
   border-color: #fff; 
   transform: scale(1.1);
-}
-
-.captcha_container{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
 }

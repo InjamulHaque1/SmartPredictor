@@ -96,9 +96,3 @@ select.form-control {
     border-color: #fff; 
     transform: scale(1.1);
   }
-
-  .captcha_container{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
