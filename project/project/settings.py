@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+1t=!ufk)rsdrmg1amp8fu09##u%kd^b^-7o4rf++g=8znm)*p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -128,3 +128,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True 
+EMAIL_HOST_USER = '21101027@uap-bd.edu'  
+EMAIL_HOST_PASSWORD = 'Ra2012fi'  
+EMAIL_FROM = 'Smart Predictor Admin'  
