@@ -4,7 +4,7 @@
     height: 480px;
     padding: 50px 100px;
     border-radius: 5px;
-    color: white;
+    color: rgb(0, 0, 0);
     vertical-align: top; 
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(69, 69, 69, 0.355);
@@ -23,12 +23,14 @@
   }
 
   .form-control {
+    font-family: Mooli, sans-serif;
+    font-size: 18px;
     width: 100%;
     padding: 10px 0; 
     border: none; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.394); 
     background-color: rgba(0, 0, 0, 0); 
-    color: #fff;
+    color: #000000;
     transition: border-color 0.5s;
   }
   
@@ -43,7 +45,7 @@
     margin: 10px 0px;
   }
   .form-group label {
-    color: #fff;
+    color: #000000;
   }
   
   .form-control::placeholder {
@@ -56,7 +58,7 @@ select.form-control {
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.394);
     background-color: rgba(0, 0, 0, 0);
-    color: #fff;
+    color: #000000;
     transition: border-color 0.5s;
   }
   
@@ -76,13 +78,12 @@ select.form-control {
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0);
     color: #fff;
-    border: none;
     margin: 5% 35%;
     padding: 15px 25px;
     cursor: pointer;
     border-radius: 3px;
     transition: background-color 0.5s, transform 0.2s, border-color 0.5s;
-    border: 1px solid rgba(255, 255, 255, 0.394); 
+    border: 3px solid rgb(255, 255, 255); 
   }
   
   .btn-primary:hover {

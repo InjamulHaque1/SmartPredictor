@@ -1,11 +1,9 @@
 .register-container {
   width: 600px;
-  height: auto; /* Change to auto to allow height to adjust based on content */
+  height: 900px;
   margin: 50px auto;
   padding: 50px 100px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: white;
   vertical-align: top; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(69, 69, 69, 0.355);
@@ -23,30 +21,35 @@
 
 /* Adjust the styles for form controls */
 .form-control {
+  font-family: Mooli, sans-serif;
+  font-size: 18px;
   width: 100%;
   padding: 10px 0; 
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.394);
   background-color: rgba(0, 0, 0, 0);
-  color: #fff;
+  color: #000000;
   transition: border-color 0.5s;
 }
 
 .form-control:focus {
+  font-family: Mooli, sans-serif;
   border-color: #3498db;
   background-color: rgba(255, 255, 255, 0.3);
 }
 
 .form-group{
+  font-family: Mooli, sans-serif;
   padding: 10px;
 }
 
 .form-group label {
-  color: #fff; 
+  color: #000000; 
+  box-shadow: #000000;
 }
 
 .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.7); 
+  color: rgba(255, 255, 255, 0); 
 }
 
 h2{
@@ -59,11 +62,13 @@ h2{
 .gender-radio {
   display: flex;
   align-items: center;
+  font-size: 18px;
 }
 
 input[type="radio"] {
   margin-left: 10px; /* Adjusted margin to space out the radio buttons */
   padding: 10px;
+  font-size: 18px;
 }
 
 /* Adjust the styles for the submit button */
@@ -72,13 +77,12 @@ input[type="radio"] {
   font-family: Mooli, sans-serif;
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
-  border: none;
   margin: 5% auto; /* Center the button horizontally */
   padding: 15px 25px;
   cursor: pointer;
   border-radius: 3px;
   transition: background-color 0.5s, transform 0.2s, border-color 0.5s;
-  border: 1px solid rgba(255, 255, 255, 0.394);
+  border: 3px solid rgb(255, 255, 255);
   position: relative; 
   left: 125px;
   

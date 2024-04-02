@@ -13,12 +13,15 @@ body {
     align-items: center;
     text-align: center;
     background-image: url(../images/background.png);
+    background-color: rgba(0, 0, 0, 0.103); /* Adjust darkness here */
+    backdrop-filter: blur(10px);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
     background-attachment: fixed;
     flex-direction: column;
+    position: relative;
     }
 
 .topnav {
@@ -87,7 +90,7 @@ footer {
 }
 
 .footer-content {
-    background: #111;
+    background: #333;
     color: #fff;
     padding: 5px 20px;
     display: flex;
@@ -103,9 +106,9 @@ footer {
     position: relative;
     top: -25px;
     margin: 0px auto;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 900;
-    color: #1F8ACC;
+    color: #03946C;
 }
 
 .contact-info {
@@ -113,7 +116,7 @@ footer {
 }
 
 .contact-info h3 {
-    color: aqua;
+    color: #03946C;
     font-size: 18px;
     margin-bottom: 10px;
 }
@@ -133,7 +136,7 @@ footer {
 }
 
 .footer-bottom {
-    background: #000;
+    background: #333;
     width: 100%;
     display: flex;
     align-items: center; 
