@@ -1,25 +1,36 @@
 .about-us {
     width: 1200px;
     margin: 0 auto;
+    padding: 50px 0px 50px 0px;
     color: #000000;
     background-color: #ffffff;
     background-color: rgba(65, 102, 124, 0.63);
     backdrop-filter: blur(10px);
   }
-  
+
   h2 {
     color: aqua;
-    font-size: 34px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 30px;
+    width: 300px;
+    margin: 10px auto;
+    padding: 1rem;
+    border-width: 3px;
+    border-style: solid;
+    border-image: 
+      linear-gradient(
+        to bottom, 
+        aqua, 
+        rgba(0, 0, 0, 0)
+      ) 1 100%;
+
   }
   
   .team-member {
     display: inline-block;
     margin: 50px;
-    width: 200px;
+    width: 250px;
     height: 300px;
-    padding: 70px 40px;
+    padding: 40px;
     text-align: center;
     vertical-align: top; 
     border-radius: 20px;
@@ -38,16 +49,13 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    margin-bottom: 30px;
   }
   
-  .team-member h3 {
+  .team-member a {
+    color: #000000;
+    text-decoration: none;
     font-size: 20px;
-    margin: 10px;
-  }
-  
-  .team-member p {
-    padding-top: 10px;
-    font-size: 16px;
   }
   
   .project-description {
@@ -57,14 +65,22 @@
   }
   .project-description h3 {
     color: aqua;
-    font-size: 34px;
-    margin: 80px auto 0px;
-    width: fit-content;
-    padding: 20px;
+    font-size: 30px;
+    max-width: 500px;
+    margin: 100px auto 50px;
+    padding: 1rem;
+    border-width: 3px;
+    border-style: solid;
+    border-image: 
+      linear-gradient(
+        to bottom, 
+        aqua, 
+        rgba(0, 0, 0, 0)
+      ) 1 100%;
   }
   
   .project-description p {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.5;
     margin-bottom: 20px;
     text-align: justify;
