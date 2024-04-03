@@ -147,3 +147,16 @@ button#cancelButton:hover {
 .cancel-appointment:hover {
     background-color: #c82333;
 }
+.user-profile-picture {
+    width: 350px; 
+    height: 350px; 
+    border-radius: 50%; 
+    overflow: hidden;
+    margin: 20px auto; 
+}
+
+.user-profile-picture img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+}

@@ -18,18 +18,18 @@
         <a href="{% url 'houses' %}">Houses</a>
         <a href="{% url 'prediction' %}">Prediction</a>
         <a href="{% url 'about_us' %}">About</a>
-
+    
         <div id="user-links">
             {% if user.is_authenticated %}
                 {% if user.is_superuser %}
                     <a href="{% url 'admin:index' %}" class="user-link">Admin Panel</a>
-                    <a href="{% url 'logout' %}" class="user-link">Sign out</a>
                 {% else %}
-                <div class="user-info">
-                    <a href="{% url 'user_profile' %}" class="user-link">{{ user.username }}</a>
-                    <a href="{% url 'logout' %}" class="user-link">Sign out</a>
-                </div>
+                    <div class="user-info" id="user-profile-container">
+                        <img src="" alt="Profile Picture" id="profile-picture" style="width: 40px; height: 40px; border-radius: 50%;">
+                        <a href="{% url 'user_profile' %}" class="user-link">{{ user.username }}</a>
+                    </div>
                 {% endif %}
+                <a href="{% url 'logout' %}" class="user-link">Sign out</a>
             {% else %}
                 <a href="{% url 'login' %}" class="user-link">Login</a>
                 <a href="{% url 'register' %}" class="user-link">Sign-up</a>
@@ -82,7 +82,28 @@
         </div>
         {% endif %}
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        $(document).ready(function () {
+            // Function to load and display the profile picture
+            function loadProfilePicture() {
+                $.ajax({
+                    type: "GET",
+                    url: "{% url 'load_profile_picture' %}",  // Update URL to your Django endpoint
+                    success: function (response) {
+                        $("#profile-picture").attr("src", response.profile_picture_url);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error loading profile picture:", error);
+                    }
+                });
+            }
+        
+            // Initial load of profile picture when the page loads
+            loadProfilePicture();
+        
+            // Optionally, you can set a timer or trigger this function based on user actions to refresh the picture.
+        });
         // Function to fade in the page overlay
         function fadeInPageOverlay() {
             const pageOverlay = document.querySelector(".page-overlay");
@@ -91,7 +112,7 @@
                 pageOverlay.style.pointerEvents = "auto"; // Enable interactions
             }
         }
-    
+
         // Function to fade out the page overlay
         function fadeOutPageOverlay() {
             const pageOverlay = document.querySelector(".page-overlay");
@@ -100,7 +121,7 @@
                 pageOverlay.style.pointerEvents = "none"; // Disable interactions
             }
         }
-    
+
         // Function to fade out and remove the message container
         function removeMessageContainer() {
             const messageContainer = document.querySelector(".message-container");
@@ -110,11 +131,11 @@
                     setTimeout(function () {
                         messageContainer.style.display = "none";
                         fadeOutPageOverlay(); // Hide the overlay
-                    }, 0); // Adjust the duration as needed
-                }, 1000); // Message container will disappear after 2 seconds
+                    }, 300); // Adjust the duration as needed
+                }, 500); // Message container will disappear after 2 seconds
             }
         }
-    
+
         // Call these functions when the page loads and messages are present
         window.onload = function () {
             const messagesExist = document.querySelector(".message");

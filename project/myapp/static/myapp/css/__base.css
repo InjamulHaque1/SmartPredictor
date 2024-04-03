@@ -23,13 +23,12 @@ body {
     flex-direction: column;
     position: relative;
     }
-
 .topnav {
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 999;
-    background-color: rgba(97, 154, 212, 0.428); 
+    background-color: rgba(97, 154, 212, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(20px);
 }
@@ -40,31 +39,31 @@ body {
     color: rgb(255, 255, 255);
     text-align: center;
     font-weight: normal;
-    padding: 25px 16px;
-    margin: 0px 5px;
-    transition: transform 0.4s;
+    padding: 20px 16px;
+    margin: 0 5px;
+    transition: background-color 0.4s, transform 0.4s;
     text-decoration: none;
-    
 }
 
 .topnav a:hover {
-    font-weight: normal;
-    background-color: rgba(151, 213, 255, 0.354);
+    background-color: rgba(151, 213, 255, 0.6);
     border-radius: 5px;
-    color: #000000;
+    color: #000;
     transform: translateY(10px);
-    overflow: hidden;
 }
+
 #user-links {
     float: right;
     margin-right: 20px;
+    display: flex; /* Align user links horizontally */
+    align-items: center; /* Center vertically within the container */
 }
 
 .user-link {
-    color: #ffffff;
+    color: #fff;
     text-align: center;
-    padding: 25px 16px;
-    margin: 0px 5px;
+    padding: 20px 16px;
+    margin: 0 5px;
     transition: transform 0.3s;
     text-decoration: none;
 }
@@ -72,14 +71,8 @@ body {
 .user-info {
     display: flex;
     align-items: center;
-    border-radius: 5px;
     margin-right: 10px;
     color: #fff;
-}
-
-.con{
-    height: 300px;
-    width: 300px;
 }
 
 footer {
@@ -206,7 +199,7 @@ footer {
 }
 .message-container {
     position: fixed;
-    top: 60%; 
+    top: 30%; 
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
