@@ -1,4 +1,3 @@
-<!-- register.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -11,8 +10,8 @@
 {% block content %}
 <div class="container">
   <div class="register-container">
-      <h2>Register</h2>
-      <form method="post" id="registration-form">
+        <h2>Register</h2>
+        <form method="post" id="registration-form">
             {% csrf_token %}
             <div class="form-group">
                 <label for="u_name">Username</label>

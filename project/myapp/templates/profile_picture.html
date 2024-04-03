@@ -1,0 +1,7 @@
+<!-- profile_picture.html -->
+
+{% if user_profile.profile_picture %}
+    <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 50%;">
+{% else %}
+    <img src="" alt="No Profile Picture" style="width: 40px; height: 40px; border-radius: 50%;">
+{% endif %}

@@ -10,6 +10,13 @@
 {% block content %}
 <div class="containerinfo" id="userProfileView" >
     <h2>User Profile</h2>
+    {% if user_profile.profile_picture %}
+        <div class="user-profile-picture">
+            <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture">
+        </div>
+    {% else %}
+        <p>No profile picture available</p><br>
+    {% endif %}
     <div class="info">
         <p><strong>Username:</strong> {{ user_profile.user.username }}</p>
         <p><strong>Name:</strong> {{ user_profile.fullname }} </p>

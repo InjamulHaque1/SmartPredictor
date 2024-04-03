@@ -10,6 +10,12 @@ from django.utils.crypto import get_random_string
 from .models import UserProfile, House
 from .forms import UserProfileForm, UserForm
 import logging
+from django.http import JsonResponse
+
+def load_profile_picture(request):
+    user_profile = UserProfile.objects.get(user=request.user)
+    profile_picture_url = user_profile.profile_picture.url if user_profile.profile_picture else ''
+    return JsonResponse({'profile_picture_url': profile_picture_url})
 
 def home(request):
     return render(request, 'home.html')
@@ -44,9 +50,7 @@ def send_otp_email(email, otp):
     except Exception as e:
         logger.error(f"Error sending OTP to {email}: {e}")
 
-
 def register(request):
-    
     if request.method == 'POST':
         u_name = request.POST.get("u_name")
         u_fname = request.POST.get("u_fname")
@@ -56,16 +60,18 @@ def register(request):
         u_age = request.POST.get("u_age")
         u_address = request.POST.get("u_address")
         u_mobile = request.POST.get("u_mobile")
-        u_gender = request.POST.get("u_gender")
+        u_gender = request.POST.get("u_gender")  # Get the uploaded profile picture
 
+        # Check if username or email already exists
         if User.objects.filter(username=u_name).exists() or User.objects.filter(email=u_email).exists():
             messages.error(request, "Username or email already exists.")
             return redirect("register")
 
         otp_generated = get_random_string(length=6, allowed_chars='1234567890')
-        
         send_otp_email(u_email, otp_generated)
+        print(otp_generated)
         
+        # Save data in session
         request.session['u_name'] = u_name
         request.session['u_fname'] = u_fname
         request.session['u_lname'] = u_lname
@@ -76,7 +82,7 @@ def register(request):
         request.session['u_mobile'] = u_mobile
         request.session['u_gender'] = u_gender
         request.session['otp_generated'] = otp_generated  
-
+        
         return redirect('verify_otp')
     
     return render(request, 'register.html')
@@ -99,7 +105,6 @@ def verify_otp(request):
         u_gender = request.session.get('u_gender')
 
         if otp_entered == otp_generated:
-            
             user = User.objects.create_user(username=u_name, first_name=u_fname, last_name=u_lname, email=u_email, password=u_password)
             user_profile = UserProfile(user=user, age=u_age, address=u_address, mobile=u_mobile, gender=u_gender)
             user_profile.save()
@@ -127,11 +132,15 @@ def user_profile(request):
             messages.success(request, "Your account has been deleted.")
             return redirect('login')
 
-        profile_form = UserProfileForm(request.POST, instance=user_profile)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
         user_form = UserForm(request.POST, instance=request.user)
 
         if profile_form.is_valid() and user_form.is_valid():
-            profile_form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = request.user  # Ensure the user is associated with the profile
+            if 'profile_picture' in request.FILES:
+                profile.profile_picture = request.FILES['profile_picture']  # Handle profile picture upload
+            profile.save()
             user_form.save()
             messages.success(request, "Profile updated successfully.")
             return redirect('user_profile')
@@ -145,7 +154,6 @@ def user_profile(request):
     }
     return render(request, 'user_profile.html', context)
 
-
 @login_required
 def logout(request):
     user = request.user
@@ -155,18 +163,23 @@ def logout(request):
 
 def houses(request):
     houses = House.objects.all()
-    return render(request, 'houses.html', {'houses': houses})
+    context = {
+        'houses': houses,
+    }
+    return render(request, 'houses.html', context)
 
 def detailBody(request, house_id=None):
     if house_id is not None:
         house = get_object_or_404(House, id=house_id)
+        context = {
+            'house': house,
+        }
+        return render(request, 'detailBody.html', context)
     else:
-        return HttpResponse("Condition not met!")
-    
-    return render(request, 'detailBody.html', {'house': house})
+        return HttpResponse("House ID not provided!")
 
 def prediction(request):
-    return render(request, 'prediction.html')
+    return render(request, 'prediction.html' )
 
 def about_us(request):
     return render(request, 'about_us.html')
