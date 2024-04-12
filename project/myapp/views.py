@@ -124,6 +124,7 @@ def verify_otp(request):
         
     return render(request, 'verify_otp.html', {'email': u_email})
 
+@login_required
 def user_profile(request):
     user_profile = UserProfile.objects.get(user=request.user)
     profile_form = UserProfileForm(instance=user_profile)
@@ -140,13 +141,13 @@ def user_profile(request):
         user_form = UserForm(request.POST, instance=request.user)
 
         if profile_form.is_valid() and user_form.is_valid():
-            profile = profile_form.save(commit=False)
-            profile.user = request.user  # Ensure the user is associated with the profile
+            
             if 'profile_picture' in request.FILES:
-                profile.profile_picture = request.FILES['profile_picture']  # Handle profile picture upload
-            profile.save()
-            user_form.save()
+                profile_form.profile_picture = request.FILES['profile_picture']  # Handle profile picture upload
+            
             messages.success(request, "Profile updated successfully.")
+            profile_form.save()
+            user_form.save()
             return redirect('user_profile')
         else:
             messages.error(request, "Error updating profile. Please check the form.")
@@ -182,7 +183,7 @@ def detailBody(request, house_id=None):
     else:
         return HttpResponse("House ID not provided!")
 
-
+@login_required
 def prediction(request):
     if request.method == 'POST':
         total_rooms = int(request.POST.get('Total Room'))
@@ -198,10 +199,12 @@ def prediction(request):
         else:
             result = predicted_price 
             
+        result = str(result) + " tk"
+            
+        messages.success(request, "Successful")       
         return render(request, 'prediction.html', {'result': result})
     else:
         return render(request, 'prediction.html')
-
 
 def about_us(request):
     return render(request, 'about_us.html')

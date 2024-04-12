@@ -1,6 +1,7 @@
 .about-us {
     width: 1200px;
-    margin: 0 auto;
+    margin: 20px 0px;
+    border-radius: 5px;
     padding: 50px 0px 50px 0px;
     color: #000000;
     background-color: #ffffff;
