@@ -5,8 +5,43 @@
 <link rel="stylesheet" href="{% static 'myapp/css/__prediction.css' %}" />
 {% endblock %}
 
-{% block title %}Prediction{% endblock %}
+{% block title %}Prediction Form{% endblock %}
 
 {% block content %}
-<p>This is prediction</p>
+<div class="container">
+    <h1>Enter Property Details:</h1>
+    <form id="prediction-form" action="" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="total-room">Total Rooms:</label>
+                <input type="text" id="total-room" name="Total Room">
+            </div>
+            <div class="col-sm-4">
+                <label for="bedroom">Bedrooms:</label>
+                <input type="text" id="bedroom" name="Bedroom">
+            </div>
+            <div class="col-sm-4">
+                <label for="bathroom">Bathrooms:</label>
+                <input type="text" id="bathroom" name="Bathroom">
+            </div>
+            <div class="col-sm-4">
+                <label for="car-parking">Car Parking:</label>
+                <input type="text" id="car-parking" name="Car Parking">
+            </div>
+            <div class="col-sm-4">
+                <label for="area-size">Area Size (Sq.Feet):</label>
+                <input type="text" id="area-size" name="Area Size in Sq.Feet">
+            </div>
+            <div class="col-sm-4">
+                <input type="submit" id="predict-button" value="Predict">
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <h2> Money: {{result}} </h2>
+        <h2> Accuracy: {{accuracy}} % </h2>
+    </div>
+</div>
+
 {% endblock %}

@@ -7,10 +7,14 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.utils.crypto import get_random_string
+import numpy as np
 from .models import UserProfile, House
 from .forms import UserProfileForm, UserForm
 import logging
+from django.shortcuts import render
 from django.http import JsonResponse
+from scripts.predict import predict
+
 
 def load_profile_picture(request):
     user_profile = UserProfile.objects.get(user=request.user)
@@ -178,8 +182,26 @@ def detailBody(request, house_id=None):
     else:
         return HttpResponse("House ID not provided!")
 
+
 def prediction(request):
-    return render(request, 'prediction.html' )
+    if request.method == 'POST':
+        total_rooms = int(request.POST.get('Total Room'))
+        bedrooms = int(request.POST.get('Bedroom'))
+        bathrooms = int(request.POST.get('Bathroom'))
+        car_parking = int(request.POST.get('Car Parking'))
+        area_size = float(request.POST.get('Area Size in Sq.Feet'))
+        
+        predicted_price = predict(total_rooms, bedrooms, bathrooms, car_parking, area_size)
+
+        if isinstance(predicted_price, (list, np.ndarray)) and len(predicted_price) > 0:
+            result = predicted_price[0]  
+        else:
+            result = predicted_price 
+            
+        return render(request, 'prediction.html', {'result': result})
+    else:
+        return render(request, 'prediction.html')
+
 
 def about_us(request):
     return render(request, 'about_us.html')
