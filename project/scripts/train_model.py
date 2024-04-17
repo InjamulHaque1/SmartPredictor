@@ -11,7 +11,7 @@ def train_model():
     
     x = house_data.drop("Price", axis=1)
     y = house_data['Price']
-    x_train, _, y_train, _ = train_test_split(x, y, test_size=0.2)
+    x_train, _, y_train, _ = train_test_split(x, y, test_size=0.3)
     
     house_model = DecisionTreeRegressor()
     house_model.fit(x_train, y_train)
