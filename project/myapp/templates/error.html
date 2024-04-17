@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/css/__error.css' %}" />
+    <link rel="shortcut icon" href="{% static 'myapp/images/favicon.png' %}" type="image/x-icon">
+    <title>Error</title>
+</head>
+<body>
+    <div class="error-container">
+        {% if user.is_authenticated %}
+            <div class="error-message">Oops. The URL is invalid.</div>
+            <div class="button-container">
+                <a href="{% url 'home' %}" class="button">Home</a>
+            </div>
+        {% else %}
+            <div class="error-message">You need to login to access this feature.</div>
+            <div class="button-container">
+                <a href="{% url 'home' %}" class="button">Home</a>
+                <a href="{% url 'login' %}" class="button">Login</a>
+                <a href="{% url 'register' %}" class="button">Register</a>
+            </div>  
+        {% endif %}
+    </div>
+</body>
+</html>

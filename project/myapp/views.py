@@ -23,6 +23,9 @@ def load_profile_picture(request):
 
 def home(request):
     return render(request, 'home.html')
+
+def custom_error(request,):
+    return render(request, 'error.html')
    
 def login(request):
     if request.method == 'POST':
