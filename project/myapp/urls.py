@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
 from . import views
+from .views import search_results
 
 urlpatterns = [    
     # Basic urls           
@@ -11,6 +12,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about_us/', views.about_us, name='about_us'),
     
+    # Search urls
+    path('search/', search_results, name='search_results'),
+
     # User account urls
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),

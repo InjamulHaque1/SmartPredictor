@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra-styles %}
+<link rel="stylesheet" href="{% static 'myapp/css/__search_results.css' %}" />
+{% endblock %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<body>
+    <form action="{% url 'search_results' %}" method="GET" class="search-form">
+        <input type="text" name="q" placeholder="Search..." class="search-input">
+        <button type="submit" class="search-button">Search</button>
+    </form>
+
+    <h1>Search Results</h1>
+    <div class="house-list">
+        {% for house in search_results %}
+            <div class="house-item">
+                <img src="{{ house.image.url }}" alt="{{ house.title }}" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">{{ house.title }}</div>
+                    <div class="house-address">{{ house.address }}</div>
+                    <div class="house-category">Type: {{ house.productCategory }}</div>
+                    <div class="house-price">Price: BDT {{ house.price }} Tk</div>
+                    <a href="{% url 'detailBody' house.id %}" class="details-link">View Details</a>
+                </div>
+            </div>
+        {% empty %}
+            <div class="no-results">No results found.</div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

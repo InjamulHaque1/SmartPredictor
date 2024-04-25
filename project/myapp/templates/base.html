@@ -18,7 +18,7 @@
         <a href="{% url 'houses' %}">Houses</a>
         <a href="{% url 'prediction' %}">Prediction</a>
         <a href="{% url 'about_us' %}">About</a>
-    
+        
         <div id="user-links">
             {% if user.is_authenticated %}
                 {% if user.is_superuser %}

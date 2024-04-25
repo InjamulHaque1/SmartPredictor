@@ -1,0 +1,81 @@
+.house-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.house-item {
+    background-color: #f9f9f9;
+    background-color: rgba(131, 165, 185, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin: 20px;
+    width: 320px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.house-image {
+    max-width: 280px;
+    max-height: 240px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.house-title {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.house-address,
+.house-category,
+.house-price {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.details-link {
+    color: #01f9d0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.details-link:hover {
+    color: #e64a19;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-input {
+    width: 600px;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #01f9d0;
+    border-radius: 8px;
+    outline: none;
+}
+
+.search-button {
+    padding: 15px 30px;
+    background-color: #01f9d0;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #e64a19;
+}

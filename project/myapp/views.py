@@ -14,6 +14,7 @@ import logging
 from django.shortcuts import render
 from django.http import JsonResponse
 from scripts.predict import predict
+from django.db.models import Q
 
 
 def load_profile_picture(request):
@@ -211,3 +212,13 @@ def prediction(request):
 
 def about_us(request):
     return render(request, 'about_us.html')
+
+# Search Results
+def search_results(request):
+    query = request.GET.get('q')
+    if query:
+        # Filter houses based on title or address containing the query
+        search_results = House.objects.filter(title__icontains=query) | House.objects.filter(address__icontains=query)
+    else:
+        search_results = House.objects.none()  # Return an empty queryset if no query is provided
+    return render(request, 'search_results.html', {'search_results': search_results})

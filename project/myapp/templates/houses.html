@@ -9,8 +9,14 @@
 
 {% block content %}
 <body>
+    <form action="{% url 'search_results' %}" method="GET" class="search-form">
+        <input type="text" name="q" placeholder="Search..." class="search-input">
+        <button type="submit" class="search-button">Search</button>
+    </form>
+    
+    <h2>Featured Houses</h2>
+
     <div class="bodyContents">
-        <h2>Featured Houses</h2>
         <div class="featured-houses">
             {% for house in houses %}
             <div class="house">

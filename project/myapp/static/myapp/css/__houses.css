@@ -95,3 +95,34 @@
     background-color: #e64a19;
     color: white;
 }
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #01f9d0;
+    border-radius: 8px;
+    outline: none;
+}
+
+.search-button {
+    padding: 15px 30px;
+    background-color: #01f9d0;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #e64a19;
+}
