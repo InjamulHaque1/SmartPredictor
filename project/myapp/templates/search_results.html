@@ -10,7 +10,7 @@
 {% block content %}
 <body>
     <form action="{% url 'search_results' %}" method="GET" class="search-form">
-        <input type="text" name="q" placeholder="Search..." class="search-input">
+        <input type="text" name="q" placeholder="Search(Sq Feet)..." class="search-input">
         <button type="submit" class="search-button">Search</button>
     </form>
 
@@ -20,7 +20,9 @@
             <div class="house-item">
                 <img src="{{ house.image.url }}" alt="{{ house.title }}" class="house-image">
                 <div class="house-details">
-                    <div class="house-title">{{ house.title }}</div>
+                    <div class="house-title">
+                        <h3>{{ house.title }} </h3>
+                    </div>
                     <div class="house-address">{{ house.address }}</div>
                     <div class="house-category">Type: {{ house.productCategory }}</div>
                     <div class="house-price">Price: BDT {{ house.price }} Tk</div>

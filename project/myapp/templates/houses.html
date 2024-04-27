@@ -21,15 +21,11 @@
             {% for house in houses %}
             <div class="house">
                 <img src="{{ house.image.url }}" alt="{{ house.title }}" class="imageMod">
-                <a href="{% url 'detailBody' house.id %}">
-                    <h3>{{ house.title }} </h3>
-                </a>
-                <p>Type: {{ house.productCategory }}<i class="fas fa-home"></i></p>
-                <p>{{ house.address }}</p>
-                <div class="bottom-button">
-                    <span>$BDT {{ house.price }} Tk</span>
-                    <button>Buy Now</button>
-                </div>
+                <h3>{{ house.title }} </h3>
+                <p>Type: {{ house.productCategory }}</p>
+                <p>Address: {{ house.address }}</p> <br>
+                <p class="house-price">$BDT {{ house.price }}</p>
+                <a href="{% url 'detailBody' house.id %}" class="details-link">View Details</a>
             </div>
             {% endfor %}
         </div>

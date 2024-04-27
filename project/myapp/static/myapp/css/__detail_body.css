@@ -5,7 +5,8 @@
 }
 
 .product {
-    background-color: #fff;
+    background-color: rgba(131, 165, 185, 0.5);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -16,10 +17,19 @@
     text-align: center;
     margin-bottom: 20px;
 }
+.product-header-details {
+    margin: 0px auto;
+    width: 500px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.39);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin-bottom: 50px;
+}
 
 .center-title {
-    font-size: 24px;
-    color: #151515;
+    font-size: 28px;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
@@ -33,6 +43,7 @@
 
 .blue-bold {
     font-weight: bold;
+    font-size: 20px;
     color: #4169E1;
 }
 
@@ -42,6 +53,8 @@
 }
 
 .product-footer, .product-details {
+    padding-left: 50px;
+    padding-right: 50px;
     margin-top: 20px;
     color: black;
     text-align: justify;
@@ -65,6 +78,11 @@
 
 .accent-secondary {
     color: #151515;
+}
+.product-footer .accent-secondary,
+.product-details .accent-secondary{
+    color: #01f9d0;
+    font-size: 20px;
 }
 
 .accent-background {

@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Mooli;
   }
 
 body {
@@ -49,7 +50,7 @@ body {
     background-color: rgba(151, 213, 255, 0.6);
     border-radius: 5px;
     color: #000;
-    transform: translateY(10px);
+    transform:scale(1.1);
 }
 
 #user-links {

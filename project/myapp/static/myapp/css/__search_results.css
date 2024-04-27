@@ -1,3 +1,6 @@
+body{
+    min-height: 100vh;
+}
 .house-list {
     display: flex;
     flex-wrap: wrap;
@@ -5,8 +8,17 @@
     margin-top: 20px;
 }
 
+h1 {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 .house-item {
-    background-color: #f9f9f9;
     background-color: rgba(131, 165, 185, 0.5);
     backdrop-filter: blur(10px);
     border-radius: 10px;
@@ -15,8 +27,9 @@
     height: 480px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 20px;
+    align-items: center;
 }
 
 .house-image {
@@ -33,12 +46,10 @@
 }
 
 .house-address,
-.house-category,
-.house-price {
+.house-category{
     color: #ffffff;
     margin-bottom: 10px;
 }
-
 .details-link {
     color: #01f9d0;
     text-decoration: none;
@@ -57,25 +68,28 @@
 }
 
 .search-input {
-    width: 600px;
+    font-family: Mooli;
+    width: 300px;
     padding: 15px;
     font-size: 18px;
-    border: 2px solid #01f9d0;
-    border-radius: 8px;
+    border: none;
+    border-radius: 8px 0px 0px 8px;
     outline: none;
 }
 
 .search-button {
+    font-family: Mooli;
     padding: 15px 30px;
     background-color: #01f9d0;
-    color: #fff;
+    color: #000000;
     font-size: 18px;
     border: none;
-    border-radius: 8px;
+    border-radius: 0px 8px 8px 0px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .search-button:hover {
     background-color: #e64a19;
+    color: white;
 }
