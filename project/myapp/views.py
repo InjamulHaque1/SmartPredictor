@@ -209,7 +209,7 @@ def prediction(request):
         result = str(result) + " tk"
             
         messages.success(request, "Successful")       
-        return render(request, 'prediction.html', {'result': result, 'accuracy': accuracy})
+        return render(request, 'prediction.html', {'result': result, 'accuracy': f"{accuracy * 100:.4f}%"})
     else:
         return render(request, 'prediction.html')
 
