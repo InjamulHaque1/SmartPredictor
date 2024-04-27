@@ -14,7 +14,7 @@ import logging
 from django.shortcuts import render
 from django.http import JsonResponse
 from scripts.predict import predict
-from django.db.models import Q
+from scripts.train_model import train_model
 
 
 def load_profile_picture(request):
@@ -198,6 +198,9 @@ def prediction(request):
         
         predicted_price = predict(total_rooms, bedrooms, bathrooms, car_parking, area_size)
 
+        # Calculate accuracy
+        accuracy = train_model()
+        
         if isinstance(predicted_price, (list, np.ndarray)) and len(predicted_price) > 0:
             result = predicted_price[0]  
         else:
@@ -206,7 +209,7 @@ def prediction(request):
         result = str(result) + " tk"
             
         messages.success(request, "Successful")       
-        return render(request, 'prediction.html', {'result': result})
+        return render(request, 'prediction.html', {'result': result, 'accuracy': accuracy})
     else:
         return render(request, 'prediction.html')
 
